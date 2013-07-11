@@ -1,0 +1,241 @@
+CREATE TABLE `archiv_area` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `xpos` int(11) NOT NULL,
+  `ypos` int(11) NOT NULL,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
+  `filename` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `filewidth` int(11) DEFAULT NULL,
+  `fileheight` int(11) DEFAULT NULL,
+  `type` enum('news','testbericht','kurztest','spielwerbung','sonstigewerbung','vorbericht','artikel','leserbrief','loesung','cheat','tipp','interview','allgemeines','haendleranzeige') CHARACTER SET utf8 DEFAULT NULL,
+  `type2` int(11) NOT NULL,
+  `erstell_zp` datetime DEFAULT NULL,
+  `ungueltig_zp` datetime NOT NULL,
+  `userid` int(11) NOT NULL,
+  `heft_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`ungueltig_zp`),
+  KEY `ungueltig_zp` (`ungueltig_zp`),
+  KEY `type2` (`type2`),
+  KEY `heft_id` (`heft_id`),
+  FULLTEXT KEY `filename` (`filename`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8636 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `archiv_heft`
+--
+
+CREATE TABLE `archiv_heft` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `erste_seite` int(11) NOT NULL DEFAULT '1',
+  `oeffentlich` enum('ja','nein') NOT NULL DEFAULT 'nein',
+  `spieleveteranen_folge` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `path` (`path`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=93 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `archiv_page`
+--
+
+CREATE TABLE `archiv_page` (
+  `heft_id` int(11) NOT NULL,
+  `dateiname` varchar(255) NOT NULL,
+  `available` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `archiv_heft` VALUES(6, 'Powerplay 8/1989', 'powerplay_1989-08', 1, 'ja', 8);
+
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_001.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_002.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_003.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_004.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_005.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_006.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_007.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_008.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_009.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_010.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_011.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_012.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_013.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_014.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_015.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_016.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_017.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_018.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_019.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_020.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_021.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_022.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_023.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_024.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_025.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_026.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_027.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_028.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_029.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_030.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_031.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_032.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_033.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_034.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_035.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_036.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_037.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_038.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_039.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_040.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_041.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_042.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_043.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_044.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_045.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_046.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_047.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_048.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_049.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_050.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_051.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_052.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_053.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_054.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_055.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_056.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_057.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_058.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_059.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_060.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_061.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_062.jpg', 1);
+INSERT INTO `archiv_page` VALUES(6, 'powerplay_1989-08_063.jpg', 1);
+
+
+INSERT INTO `archiv_area` VALUES(146, 'Editorial', 0, 0, 1200, 1732, 'powerplay_1989-08_003.jpg', 1200, 1700, 'allgemeines', 13, '2010-02-21 21:10:49', '9999-12-31 23:59:59', 1, 6);
+INSERT INTO `archiv_area` VALUES(147, 'Die Bewertung', 0, 0, 1200, 1732, 'powerplay_1989-08_004.jpg', 1200, 1700, 'allgemeines', 13, '2010-02-21 21:10:49', '9999-12-31 23:59:59', 1, 6);
+INSERT INTO `archiv_area` VALUES(148, 'Inhaltsverzeichnis', 0, 0, 1200, 1732, 'powerplay_1989-08_005.jpg', 1200, 1700, 'allgemeines', 13, '2010-02-21 21:10:49', '9999-12-31 23:59:59', 1, 6);
+INSERT INTO `archiv_area` VALUES(149, 'Micro Style', 0, 0, 1200, 1732, 'powerplay_1989-08_006.jpg', 1200, 1700, 'sonstigewerbung', 5, '2010-02-21 21:10:49', '9999-12-31 23:59:59', 1, 6);
+INSERT INTO `archiv_area` VALUES(150, 'Micro Style', 0, 0, 1200, 1732, 'powerplay_1989-08_007.jpg', 1200, 1700, 'sonstigewerbung', 5, '2010-02-21 21:10:49', '2011-03-27 14:54:53', 1, 6);
+INSERT INTO `archiv_area` VALUES(151, 'CES-Bericht', 0, 0, 1200, 1732, 'powerplay_1989-08_008.jpg', 1200, 1700, 'artikel', 7, '2010-02-21 21:10:49', '2011-03-27 15:03:06', 1, 6);
+INSERT INTO `archiv_area` VALUES(152, 'Karo Soft', 600, 24, 550, 1647, 'powerplay_1989-08_013.jpg', 1200, 1700, 'haendleranzeige', 14, '2010-02-21 21:10:49', '2011-03-27 14:58:13', 1, 6);
+INSERT INTO `archiv_area` VALUES(153, 'Action Replay', 0, 0, 1200, 1732, 'powerplay_1989-08_016.jpg', 1200, 1700, 'sonstigewerbung', 5, '2010-02-21 21:10:49', '9999-12-31 23:59:59', 1, 6);
+INSERT INTO `archiv_area` VALUES(155, 'Hitparaden Leser-Hits', 0, 0, 1200, 1732, 'powerplay_1989-08_020.jpg', 1200, 1700, 'allgemeines', 13, '2010-02-21 21:10:49', '2011-03-27 15:03:34', 1, 6);
+INSERT INTO `archiv_area` VALUES(3140, '', 0, 0, 1200, 1732, 'powerplay_1989-08_001.jpg', 1200, 1700, NULL, 0, '2010-12-13 21:09:16', '2010-12-13 21:09:21', 1378, 6);
+INSERT INTO `archiv_area` VALUES(5250, '', 0, 0, 1200, 1732, 'powerplay_1989-08_001.jpg', 1200, 1700, NULL, 0, '2011-03-13 01:06:38', '2011-03-13 18:11:34', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5725, 'Titelseite', 0, 0, 1200, 1732, 'powerplay_1989-08_001.jpg', 1200, 1700, NULL, 13, '2011-03-27 14:49:05', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5726, 'KlassiX', 0, 0, 1200, 1732, 'powerplay_1989-08_002.jpg', 1200, 1700, NULL, 4, '2011-03-27 14:50:24', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(152, 'KaroSoft', 600, 24, 550, 1647, 'powerplay_1989-08_013.jpg', 1200, 1700, NULL, 14, '2011-03-27 14:58:13', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5727, 'Power Play Classics-Compilation', 0, 0, 1200, 1732, 'powerplay_1989-08_015.jpg', 1200, 1700, NULL, 1, '2011-03-27 15:00:52', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5728, 'Ariolasoft ist tot - es lebe United Software', 0, 0, 1200, 1732, 'powerplay_1989-08_018.jpg', 1200, 1700, NULL, 1, '2011-03-27 15:01:52', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5729, 'FUNTASTIC ComputerWare', 18, 866, 1162, 804, 'powerplay_1989-08_019.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:02:31', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(151, 'CES-Bericht', 0, 0, 1200, 1732, 'powerplay_1989-08_008.jpg', 1200, 1700, NULL, 1, '2011-03-27 15:03:06', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(155, 'Hitparaden', 0, 0, 1200, 1732, 'powerplay_1989-08_020.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:03:34', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5730, 'Silkworm', 0, 0, 1200, 1732, 'powerplay_1989-08_021.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:03:49', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5731, 'Curse of the Azure Bonds', 0, 0, 1200, 1732, 'powerplay_1989-08_022.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:04:53', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5732, 'Computershop und Gamesworld', 0, 0, 1200, 1732, 'powerplay_1989-08_023.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:05:14', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5733, 'Shogun', 38, 914, 1126, 758, 'powerplay_1989-08_024.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:05:42', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5734, 'Deja Vu II', 38, 122, 1118, 768, 'powerplay_1989-08_024.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:06:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5735, 'Reinhard Schuster Computer', 0, 0, 1200, 1732, 'powerplay_1989-08_025.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:06:34', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5736, 'Populous', 24, 582, 1160, 1092, 'powerplay_1989-08_026.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:08:33', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5737, 'Einleitung', 44, 6, 1138, 560, 'powerplay_1989-08_026.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:08:48', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5738, 'CPS', 18, 882, 1130, 792, 'powerplay_1989-08_027.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:10:06', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5739, 'Jeanne dArc', 46, 1134, 1142, 536, 'powerplay_1989-08_028.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:10:59', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5740, 'TV Sports Football', 594, 278, 266, 980, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:12:14', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5741, 'Microprose Soccer', 24, 668, 262, 1002, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:12:46', '2011-03-27 23:27:22', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5742, 'Superstar Ice Hockey', 306, 1026, 268, 640, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:13:08', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5743, 'Bundesliga Manager', 592, 1272, 264, 400, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:13:30', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5744, 'Project Firestart', 878, 436, 262, 1232, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:13:54', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5745, 'Battlehawks 1942', 330, 98, 562, 1574, 'powerplay_1989-08_030.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:14:31', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5746, 'Sierra-Spiele leichtgemacht', 902, 100, 284, 1566, 'powerplay_1989-08_030.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:15:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5747, 'Joysoft', 608, 78, 532, 1588, 'powerplay_1989-08_031.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:15:37', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5748, 'Hallo Freaks', 10, 10, 578, 1656, 'powerplay_1989-08_031.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:15:57', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5749, 'Playsoft', 894, 42, 266, 804, 'powerplay_1989-08_033.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:16:51', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5750, 'CWM - Computerversand', 610, 872, 554, 778, 'powerplay_1989-08_033.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:17:13', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5751, 'Joystick', 40, 862, 560, 400, 'powerplay_1989-08_033.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:18:16', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5752, 'Legend of Blacksilver', 0, 0, 1200, 1732, 'powerplay_1989-08_032.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:18:45', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5753, 'Schlichting', 600, 12, 588, 1646, 'powerplay_1989-08_035.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:19:18', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5754, 'Ultima V Clue Book (Teil 1)', 0, 0, 1200, 1732, 'powerplay_1989-08_036.jpg', 1200, 1700, NULL, 9, '2011-03-27 15:20:05', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5755, 'Austria Dynamic Systems', 614, 56, 552, 792, 'powerplay_1989-08_037.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:20:35', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5756, 'Decos GmbH', 618, 858, 552, 802, 'powerplay_1989-08_037.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:20:55', '2011-03-27 15:21:02', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5756, 'DECOS GmbH', 618, 858, 552, 802, 'powerplay_1989-08_037.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:21:02', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5757, 'Gradius (NES)', 34, 412, 266, 558, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:21:55', '2011-03-27 23:28:09', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5758, 'Shinobi (Sega)', 34, 990, 268, 364, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:22:19', '2011-03-27 23:28:18', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5759, 'R-Type (Sega)', 322, 734, 262, 554, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:22:38', '2011-03-27 23:28:43', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5760, 'Super Mario Bros. (NES)', 610, 282, 258, 896, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:22:57', '2011-03-27 23:28:49', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5761, 'Ys (Sega)', 894, 570, 258, 1100, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:23:16', '2011-03-27 23:28:38', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5762, 'Punch Out (NES)', 32, 1368, 262, 286, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:23:48', '2011-03-27 23:28:23', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5763, 'Ghostsn Goblins (NES)', 316, 1302, 272, 364, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:24:19', '2011-03-27 23:28:28', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5764, 'Castlevania (NES)', 606, 1208, 270, 460, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:24:49', '2011-03-27 23:28:33', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5765, 'Videospiel-Tips', 10, 10, 302, 384, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:25:08', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5766, 'Hall Of Fame', 34, 1020, 1134, 630, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:29:20', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5767, 'World-Court Tennis (PC-Engine)', 310, 90, 278, 914, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:30:02', '2011-03-27 23:29:16', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5768, 'Passing Shot (Automat)', 602, 728, 272, 274, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:30:30', '2011-03-27 23:29:23', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5769, 'Metroid (NES)', 892, 616, 272, 376, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 15:30:53', '2011-03-27 23:29:27', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5770, 'Leserbriefe', 0, 0, 1200, 1732, 'powerplay_1989-08_040.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:31:16', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5771, 'Starkiller - 17. Folge', 0, 0, 1200, 1732, 'powerplay_1989-08_041.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:31:46', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5772, 'Micro Status', 0, 0, 1200, 1732, 'powerplay_1989-08_043.jpg', 1200, 1700, NULL, 5, '2011-03-27 15:32:16', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5773, 'Kult', 0, 0, 1200, 1732, 'powerplay_1989-08_044.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:32:51', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5774, 'Personal Nightmare', 22, 940, 1130, 720, 'powerplay_1989-08_045.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:33:17', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5775, 'Weird Dreams', 24, 102, 1128, 822, 'powerplay_1989-08_045.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:33:34', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5776, 'Sim City', 0, 0, 1200, 1732, 'powerplay_1989-08_046.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:33:53', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5777, 'Micro Status', 0, 0, 1200, 1732, 'powerplay_1989-08_047.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:34:13', '2011-03-27 15:35:38', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5778, 'Waterloo', 44, 116, 1126, 812, 'powerplay_1989-08_048.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:34:45', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5779, 'Steel Thunder', 38, 952, 1142, 726, 'powerplay_1989-08_048.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:35:06', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5777, 'Total Eclipse', 34, 804, 1156, 902, 'powerplay_1989-08_047.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:35:38', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5780, 'Dark Side', 48, 160, 1136, 634, 'powerplay_1989-08_047.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:35:56', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5781, 'Millennium 2.2', 0, 0, 1200, 1732, 'powerplay_1989-08_049.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:36:12', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5782, 'Phobia', 26, 920, 1144, 750, 'powerplay_1989-08_050.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:36:43', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5783, 'Rainbow Warrior', 38, 110, 1130, 790, 'powerplay_1989-08_050.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:37:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5784, 'Rick Dangerous', 0, 0, 1200, 1732, 'powerplay_1989-08_051.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:37:16', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5785, 'Thunderbirds', 38, 926, 1128, 750, 'powerplay_1989-08_052.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:37:40', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5786, 'Xybots', 38, 110, 1126, 796, 'powerplay_1989-08_052.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:38:00', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5787, '3D Pool', 0, 0, 1200, 1732, 'powerplay_1989-08_053.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:38:45', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5788, 'Impressum', 44, 798, 1120, 870, 'powerplay_1989-08_054.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:39:08', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5789, 'Wicked', 46, 112, 1120, 678, 'powerplay_1989-08_054.jpg', 1200, 1700, NULL, 30, '2011-03-27 15:39:32', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5790, 'WIAL-Versand-Service', 26, 876, 544, 794, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:40:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5791, 'Plashpoint', 594, 854, 542, 814, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:40:27', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5792, 'Savage', 782, 670, 372, 170, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:41:28', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5793, 'Shootem Up Construction Kit', 780, 114, 374, 534, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:41:48', '2011-03-27 15:41:57', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5793, 'Shoot em Up Construction Kit', 780, 114, 374, 534, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:41:57', '2011-03-27 15:42:03', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5793, 'Shoot em Up Construction Kit', 780, 114, 374, 534, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:42:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5794, 'Gunship', 402, 104, 368, 734, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:42:25', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5795, 'Sorcerer Lord', 26, 112, 368, 530, 'powerplay_1989-08_055.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:42:58', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5796, 'Thomas Mueller Computer Versand', 42, 70, 292, 1616, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:43:37', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5797, 'Robocop', 426, 480, 364, 722, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:43:58', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5798, 'Stormlord', 808, 604, 368, 704, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:44:15', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5799, 'Waterloo', 424, 1220, 370, 252, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:44:32', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5800, 'BattleTech', 422, 1486, 372, 195, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:45:00', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5801, 'Heroes of the Lance', 806, 1322, 372, 354, 'powerplay_1989-08_056.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:45:18', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5802, 'easy', 790, 86, 372, 1580, 'powerplay_1989-08_057.jpg', 1200, 1700, NULL, 14, '2011-03-27 15:45:56', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5803, 'Chuck Yeagers AFT 2.0', 400, 720, 368, 948, 'powerplay_1989-08_057.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:47:45', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5804, 'Hilsfar', 14, 1512, 376, 157, 'powerplay_1989-08_057.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:48:22', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5805, 'Savage', 26, 1020, 364, 486, 'powerplay_1989-08_057.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:48:43', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5806, 'The Duel - Test Drive II', 34, 304, 358, 702, 'powerplay_1989-08_057.jpg', 1200, 1700, NULL, 33, '2011-03-27 15:49:15', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5807, 'Blades of Steel', 0, 0, 1200, 1732, 'powerplay_1989-08_058.jpg', 1200, 1700, NULL, 31, '2011-03-27 15:49:38', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5808, 'Wanted', 34, 914, 1132, 770, 'powerplay_1989-08_059.jpg', 1200, 1700, NULL, 31, '2011-03-27 15:50:06', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5809, 'Poseidon Wars', 38, 96, 1124, 792, 'powerplay_1989-08_059.jpg', 1200, 1700, NULL, 31, '2011-03-27 15:50:25', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5810, 'Moto Roader', 40, 902, 1130, 768, 'powerplay_1989-08_060.jpg', 1200, 1700, NULL, 31, '2011-03-27 15:50:47', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5811, 'Dungeon Explorer', 44, 112, 1128, 766, 'powerplay_1989-08_060.jpg', 1200, 1700, NULL, 31, '2011-03-27 15:51:06', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5812, 'Operation Thunderbolt', 36, 908, 1126, 748, 'powerplay_1989-08_061.jpg', 1200, 1700, NULL, 32, '2011-03-27 15:51:36', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5813, 'Turbo Out Run', 32, 104, 1128, 774, 'powerplay_1989-08_061.jpg', 1200, 1700, NULL, 32, '2011-03-27 15:52:03', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5814, 'Inserentenverzeichnis', 38, 1138, 1128, 534, 'powerplay_1989-08_062.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:52:26', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5815, 'Vorschau auf die kommende Ausgabe', 10, 10, 1172, 1116, 'powerplay_1989-08_062.jpg', 1200, 1700, NULL, 13, '2011-03-27 15:52:48', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5816, 'Power Play Classics', 0, 0, 1200, 1732, 'powerplay_1989-08_063.jpg', 1200, 1700, NULL, 4, '2011-03-27 15:53:15', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5741, 'Microprose Soccer', 24, 668, 262, 1002, 'powerplay_1989-08_029.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:27:22', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5757, 'Gradius', 34, 412, 266, 558, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:09', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5758, 'Shinobi', 34, 990, 268, 364, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:18', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5762, 'Punch Out', 32, 1368, 262, 286, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:23', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5763, 'Ghostsn Goblins', 316, 1302, 272, 364, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:28', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5764, 'Castlevania', 606, 1208, 270, 460, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:33', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5761, 'Ys', 894, 570, 258, 1100, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:38', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5759, 'R-Type', 322, 734, 262, 554, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:43', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5760, 'Super Mario Bros.', 610, 282, 258, 896, 'powerplay_1989-08_038.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:28:49', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5767, 'World-Court Tennis', 310, 90, 278, 914, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:29:16', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5768, 'Passing Shot', 602, 728, 272, 274, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:29:23', '9999-12-31 23:59:59', 1383, 6);
+INSERT INTO `archiv_area` VALUES(5769, 'Metroid', 892, 616, 272, 376, 'powerplay_1989-08_039.jpg', 1200, 1700, NULL, 11, '2011-03-27 23:29:27', '9999-12-31 23:59:59', 1383, 6);
