@@ -48,7 +48,7 @@ angular.module('myApp.controllers', [])
         }
         $scope.istAktuellAnzuzeigen = function(page) {
             //console.log($scope.currentPage + " / " + page.dateiname);
-            boolean anzeigen =  $scope.currentPage==page.dateiname;
+            var anzeigen =  $scope.currentPage==page.dateiname;
             return anzeigen;
 
         };
