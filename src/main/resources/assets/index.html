@@ -2,66 +2,18 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Kultpower Archiv AngularJS</title>
   <link rel="stylesheet" href="css/app.css"/>
+    <!--
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  -->
 </head>
 <body>
 
 
   <div class="container">
 
-
-      <!--
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
-          -->
-      <div class="navbar">
-          <div class="navbar-inner" ng-controller="NavController">
-
-              <ul class="nav nav-tabs">
-
-                  <li><a href="#/">Home</a>
-
-                  <li><a href="#/games">Spiele</a></li>
-
-                  <li><a href="#/platforms">Plattformen</a></li>
-
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">SpracheNg<b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                          <li ng-repeat="lang in languages">
-                              <a ng-show="lang == selectedLanguage" class="disabled" style="color:#999999;">
-                                  {{ lang }}
-                              </a>
-                              <a ng-show="lang != selectedLanguage" class="" href="/language?lang={{ lang }}">
-                                  {{ lang }}
-                              </a>
-                          </li>
-                      </ul>
-                  </li>
-
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sprache<b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-
-                          <li><a class="disabled" style="color:#999999;">de</a></li>
-                          <li><a class="" href="/language?lang=en">en</a></li>
-
-
-                      </ul>
-                  </li>
-
-              </ul>
-              {{ debug }}
-          </div>
-      </div>
-
   <div ng-view></div>
-
-  <div>Oregami Angular/Dropwizard development version: v<span app-version></span></div>
 
   </div>
 
@@ -71,6 +23,7 @@
 
   <script src="lib/angular/angular.js"></script>
   <script src="https://raw.github.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-0.4.0.js"></script>
+
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>

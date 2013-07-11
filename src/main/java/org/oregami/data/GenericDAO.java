@@ -4,16 +4,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.oregami.entities.BaseEntity;
-
-public interface GenericDAO<E extends BaseEntity, P>
+public interface GenericDAO<E extends Object, P>
 {
  /**
   * Persist the indicated entity to database
   * @param entity
   * @return the primary key
   */
- P save(E entity);
+ boolean save(E entity);
   
  /**
   * Retrieve an object using indicated ID

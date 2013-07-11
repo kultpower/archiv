@@ -1,6 +1,6 @@
 package org.oregami.dropwizard;
 
-import org.oregami.resources.GamesResource;
+import org.oregami.resources.HefteResource;
 
 import com.google.inject.persist.PersistService;
 import com.google.inject.persist.jpa.JpaPersistModule;
@@ -9,46 +9,39 @@ import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
-//import com.yammer.dropwizard.db.DatabaseConfiguration;
-//import com.yammer.dropwizard.hibernate.HibernateBundle;
 
+public class KultpowerService extends Service<KultpowerConfiguration> {
 
-public class OregamiService extends Service<OregamiConfiguration> {
-
-	private GuiceBundle<OregamiConfiguration> guiceBundle;
+	private GuiceBundle<KultpowerConfiguration> guiceBundle;
 	
 	public static void main(String[] args) throws Exception {
-		new OregamiService().run(args);
+		new KultpowerService().run(args);
 	}
 	
 	@Override
-	public void initialize(Bootstrap<OregamiConfiguration> bootstrap) {
+	public void initialize(Bootstrap<KultpowerConfiguration> bootstrap) {
 		bootstrap.setName("hello-world");
-//		bootstrap.addBundle(hibernate);
 		bootstrap.addBundle(new AssetsBundle("/assets/", "/", "index.html"));
 		
-		guiceBundle = GuiceBundle.<OregamiConfiguration>newBuilder()
-				.addModule(new OregamiGuiceModule())
+		guiceBundle = GuiceBundle.<KultpowerConfiguration>newBuilder()
+				.addModule(new KultpowerGuiceModule())
 				.addModule(new JpaPersistModule("data"))
 				.enableAutoConfig("org.oregami")
-				.setConfigClass(OregamiConfiguration.class)
+				.setConfigClass(KultpowerConfiguration.class)
 				.build();
 		bootstrap.addBundle(guiceBundle);
-//		OregamiGuiceInjector.get().getInstance(JPAInitializer.class);
-		
 				
 	}
 
 	
 	@Override
-	public void run(OregamiConfiguration config, Environment environment)
+	public void run(KultpowerConfiguration config, Environment environment)
 			throws Exception {
 		
 		PersistService persistService = guiceBundle.getInjector().getInstance(PersistService.class);
 		persistService.start();
 		
-		environment.addResource(guiceBundle.getInjector().getInstance(GamesResource.class));
-//		environment.addResource(GamesResource.class);
+		environment.addResource(guiceBundle.getInjector().getInstance(HefteResource.class));
 	}
 
 

@@ -1,30 +1,55 @@
 /* app css stylesheet */
 
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #000055;
+    color: #dddddd;
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+a:hover {
+    color: #ffff00;
+}
+
+a.clickable {
+    cursor: pointer;
+}
+
+td {
+    font-family: Verdana, Arial;
+    font-size: 9pt;
+    text-align: justify;
+}
+
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }

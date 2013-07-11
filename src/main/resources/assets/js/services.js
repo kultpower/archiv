@@ -9,13 +9,21 @@ angular.module('myApp.services', []).
 
     value('version', '0.1')
 
-    .service('gamesService', ['$http',function ($http) {
+    .service('hefteService', ['$http',function ($http) {
         return {
-            gamesTest: function () {
+            hefteTest: function () {
                 return 'games...games...';
             },
-            games: function(callback) {
-                $http.get('/service/games/init').success(callback);
+            hefte: function(callback) {
+                $http.get('/service/hefte').success(callback);
+            }
+        }
+    }])
+
+    .service('heftService', ['$http',function ($http) {
+        return {
+            heft: function(name, callback) {
+                $http.get('/service/heft/' + name).success(callback);
             }
         }
     }])

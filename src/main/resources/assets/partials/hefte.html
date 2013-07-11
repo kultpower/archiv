@@ -1,0 +1,23 @@
+hefte2.html
+<br/>
+debug: {{ debug }}
+{{ hefteTest }}
+<br/>
+
+<div ng-repeat="(heftname, listeDerAusgaben) in hefte">
+    <h2>{{ heftname }}</h2>
+
+    <span ng-repeat="heft in listeDerAusgaben">
+   <a href="#/hefte/{{ heft.path }}">
+       <img ng-src="http://www.kultpower.de/archiv/hefte/_preview_images/{{ heft.path }}.jpg"/>
+   </a>
+   </span>
+    <hr/>
+</div>
+
+
+
+
+
+
+

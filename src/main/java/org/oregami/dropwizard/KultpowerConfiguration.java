@@ -2,7 +2,7 @@ package org.oregami.dropwizard;
 
 import com.yammer.dropwizard.config.Configuration;
 
-public class OregamiConfiguration extends Configuration {
+public class KultpowerConfiguration extends Configuration {
 
 //	  @Valid
 //	  @NotNull

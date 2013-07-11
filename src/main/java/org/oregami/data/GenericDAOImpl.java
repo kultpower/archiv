@@ -7,11 +7,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import org.oregami.entities.BaseEntity;
-
 import com.google.inject.Inject;
 
-public abstract class GenericDAOImpl<E extends BaseEntity, P> implements
+public abstract class GenericDAOImpl<E extends Object, P> implements
 		GenericDAO<E, P> {
 
 	@Inject
@@ -24,10 +22,9 @@ public abstract class GenericDAOImpl<E extends BaseEntity, P> implements
 	
 	Class<E> entityClass;
 
-	@SuppressWarnings("unchecked")
-	public P save(E entity) {
+	public boolean save(E entity) {
 		entityManager.persist(entity);
-		return (P) entity.getId();
+		return true;
 	}
 
 	public E findOne(P id) {

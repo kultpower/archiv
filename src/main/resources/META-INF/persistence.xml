@@ -6,6 +6,13 @@
     <persistence-unit name="data" 
                       transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>model.ArchivArea</class>
+		<class>model.ArchivAreaPK</class>
+		<class>model.ArchivHeft</class>
+		<class>model.ArchivKategorie</class>
+		<class>model.ArchivKommentar</class>
+		<class>model.ArchivUser</class>
+		<class>model.ArchivPage</class>
         <properties>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
@@ -18,12 +25,12 @@
 <!--             <property name="hibernate.dialect"  -->
 <!--                       value="org.hibernate.dialect.HSQLDialect" /> -->
 <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"></property>
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dw"></property>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dwarchiv"></property>
 			<property name="hibernate.connection.username" value="root"></property>
 			<property name="hibernate.connection.password" value="test"></property>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"></property>                      
                       
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+<!--             <property name="hibernate.hbm2ddl.auto" value="create" /> -->
             <property name="hibernate.type" value="trace" />
         </properties>
     </persistence-unit>
