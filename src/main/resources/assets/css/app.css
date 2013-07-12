@@ -1,5 +1,38 @@
 /* app css stylesheet */
 
+
+#navigation {
+    position: fixed;
+    top: 10px;
+    left: 2px;
+    background-color: #222277;
+}
+
+#previewImages {
+    position: fixed;
+    top: 10px;
+    left: 300px;
+    background-color: #222277;
+}
+
+.example-show, .example-hide {
+    -webkit-transition:all linear 0.2s;
+    -moz-transition:all linear 0.2s;
+    -ms-transition:all linear 0.2s;
+    -o-transition:all linear 0.2s;
+    transition:all linear 0.2s;
+}
+
+.example-show.example-show-active,
+.example-hide {
+    opacity:1;
+}
+
+.example-hide.example-hide-active,
+.example-show {
+    opacity:0;
+}
+
 a {
     text-decoration: none;
 }
