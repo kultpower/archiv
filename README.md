@@ -1,4 +1,4 @@
-oregami-dropwizard-angularjs
-============================
+archiv
+======
 
-oregami-dropwizard-angularjs
+Kultpower Archiv as RESTful web application with AngularJS Client
