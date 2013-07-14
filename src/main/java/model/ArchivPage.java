@@ -51,5 +51,15 @@ public class ArchivPage implements Serializable {
 	public void setHeftId(int heftId) {
 		this.heftId = heftId;
 	}
+	
+	public int getRealPageNumber() {
+		String temp = dateiname.replaceAll(".jpg", "");
+		int realPageNumber = Integer.parseInt(temp.substring(temp.length()-3));
+		return realPageNumber;
+	}
+
+	public void setRealPageNumber(int realPageNumber) {
+		//this.realPageNumber = realPageNumber;
+	}	
 
 }
