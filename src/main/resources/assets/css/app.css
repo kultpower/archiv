@@ -1,6 +1,5 @@
 /* app css stylesheet */
 
-
 #navigation {
     position: fixed;
     top: 10px;
@@ -15,22 +14,57 @@
     background-color: #222277;
 }
 
+#debug {
+    background-color: white;
+    color: black;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 200px;
+    height: 100px;
+    font-size: 8pt;
+}
+
+.pageLink {
+
+    color: black;
+    font-size: 8pt;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pageLinkContainer {
+    background-color: white;
+    height: 500px;
+    overflow: auto;
+    position: fixed;
+    top: 50px;
+    left: 900px;
+    width: 250px;
+    -moz-column-count: 2;    -moz-column-gap: 2em;
+    -webkit-column-count: 2; -webkit-column-gap: 2em;
+}
+
+.pageLink:hover {
+    background-color: #dddddd;
+}
+
 .example-show, .example-hide {
-    -webkit-transition:all linear 0.2s;
-    -moz-transition:all linear 0.2s;
-    -ms-transition:all linear 0.2s;
-    -o-transition:all linear 0.2s;
-    transition:all linear 0.2s;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
 }
 
 .example-show.example-show-active,
 .example-hide {
-    opacity:1;
+    opacity: 1;
 }
 
 .example-hide.example-hide-active,
 .example-show {
-    opacity:0;
+    opacity: 0;
 }
 
 a {

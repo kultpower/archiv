@@ -33,6 +33,9 @@ angular.module('myApp.controllers', [])
           $scope.bigPageImgUrl=urlPrefix + path + '/big/' + page.dateiname;
           $scope.pageNumberInput = $scope.heft.pages.indexOf(page)
         };
+        $scope.gotoPageByPage = function(page) {
+            $scope.gotoPage($scope.heft.pages.indexOf(page));
+        }
         $scope.gotoPage = function(number) {
             $scope.currentPage = $scope.heft.pages[number].dateiname;
         }
@@ -48,7 +51,7 @@ angular.module('myApp.controllers', [])
         }
         $scope.istAktuellAnzuzeigen = function(page) {
             //console.log($scope.currentPage + " / " + page.dateiname);
-            var anzeigen =  $scope.currentPage==page.dateiname;
+            var anzeigen =  ($scope.currentPage==page.dateiname );//|| page.realPageNumber == ;
             return anzeigen;
 
         };
