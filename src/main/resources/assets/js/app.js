@@ -1,8 +1,12 @@
 'use strict';
 
+function sleep(delay) {
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+}
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['ui.bootstrap', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers']).
+angular.module('myApp', ['ui.bootstrap', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers', 'ajoslin.promise-tracker']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/hefte', {templateUrl: 'partials/hefte.html', controller: 'HefteController'});
     $routeProvider.when('/hefte/:heftname', {templateUrl: 'partials/heft.html', controller: 'HeftController'});
