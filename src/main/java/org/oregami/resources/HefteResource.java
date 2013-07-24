@@ -55,15 +55,6 @@ public class HefteResource {
 			map.put(magazin, hefteListe.subList(0, Math.min(5, hefteListe.size())));
 		}
 		
-//		heftRepository.getTransaction().commit();
-		
-//		ArchivHeft heft = new ArchivHeft();
-//		heft.setName("name");
-//		heftListe.add(heft);
-		
-		
-		
-		//return heftListe.subList(0, 35);
 		return map;
 	}
 	
