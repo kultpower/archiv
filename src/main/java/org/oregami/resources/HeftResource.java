@@ -17,6 +17,7 @@ import model.ArchivPage;
 
 import org.oregami.data.ArchivAreaDao;
 import org.oregami.data.ArchivPageDao;
+import org.oregami.dropwizard.KultpowerConfiguration;
 
 import com.google.inject.Inject;
 
@@ -74,6 +75,8 @@ public class HeftResource {
 		result.put("pagesByRealPageNumber",pagesByRealPageNumber);
 //		result.put("areas",listAreas);
 		result.put("pages",listPages);
+		
+		result.put("mainUrl", KultpowerConfiguration.mainUrl);
 		
 		
 		

@@ -4,7 +4,7 @@
 
     <span ng-repeat="heft in listeDerAusgaben">
    <a href="#/hefte/{{ heft.path }}">
-       <img ng-src="http://www.kultpower.de/archiv/hefte/_preview_images/{{ heft.path }}.jpg"/>
+       <img ng-src="{{ heft.previewImageUrl }}"/>
    </a>
    </span>
     <hr/>

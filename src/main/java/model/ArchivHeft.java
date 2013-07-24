@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NamedQuery;
+import org.oregami.dropwizard.KultpowerConfiguration;
 
 
 /**
@@ -101,6 +102,10 @@ public class ArchivHeft implements Serializable {
 
 	public void setSpieleveteranenFolge(Integer spieleveteranenFolge) {
 		this.spieleveteranenFolge = spieleveteranenFolge;
+	}
+	
+	public String getPreviewImageUrl() {
+		return KultpowerConfiguration.mainUrl + "hefte/_preview_images/" + path + ".jpg";
 	}
 
 //	public Set<ArchivArea> getArchivAreas() {
