@@ -1,7 +1,7 @@
 <div class="loading loadingImage" ng-show="$root.imageLoader.active()">
     <div class="middleOfPage">
     ...loading image...
-</div>
+    </div>
 </div>
 
 
@@ -23,19 +23,6 @@
 <div id="loading" ng-hide="loadingDataFinished">LOADING</div>
 
 <div id="navigation">
-    <!--
-    ng-select:
-    <select
-            ng-model="currentPage"
-            ng-options="page.dateiname as page.dateiname for page in heft.pages">
-        <option>--</option>
-    </select>
-
-    <hr/>
-
-    <input on-keyup-fn="handleKeypress" ng-model="pageNumberInput" stype="width: 40px;" size="4">
-    <button ng-click="gotoPageByRealPageNumber  (pageNumberInput)">Seite ansehen</button>
-    -->
     <button ng-click="gotoPreviousPage()" ng-disabled="realPageNumber==heft.filledPageNumbers[0]">zur&uuml;ck</button>
 
     <button class="clickable" ng-click="gotoNextPage()" ng-disabled="realPageNumber==heft.filledPageNumbers[heft.filledPageNumbers.length-1]">vor</button>
@@ -44,12 +31,7 @@
 </div>
 
 <div class="pageLinkContainer">
-   <!-- <div class="pageLink" title="{{ page.dateiname }}" ng-show="$index==0 || $index%2==0" ng-repeat="page in heft.pages"
-         ng-click="gotoPageByPage(page)">
-        Seite {{ page.realPageNumber }} / {{ page.realPageNumber+1 }}
-    </div>
-    -->
-    <div class="pageLink" ng-repeat="doublePage in heft.doublePages" ng-click="gotoPageByRealPageNumber(doublePage[0])">
+    <div class="pageLink" ng-class="{pageLinkCurrentPage: realPageNumber==doublePage[0] || realPageNumber == doublePage[1]}" ng-repeat="doublePage in heft.doublePages" ng-click="gotoPageByRealPageNumber(doublePage[0])">
         Seite {{ getTextForDoublePageLink(doublePage) }}
     </div>
 </div>
