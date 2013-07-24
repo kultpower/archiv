@@ -18,6 +18,12 @@ button {
     background-color: #222277;
 }
 
+.middleOfPage {
+    position:absolute;
+    top:50%;
+    left:40%;
+}
+
 .loading {
     width: 100%;
     height: 100%;
@@ -27,15 +33,15 @@ button {
     color: white;
     text-align: center;
     vertical-align: middle;
-    opacity: 0.8;
+    opacity: 0.9;
     position: fixed;
     top: 0px;
     left: 0px;
 }
 
 .loadingImage {
-    background-color: blue;
-    opacity: 0.6;
+    background-color: black;
+    opacity: 0.8;
 }
 
 #debug {
@@ -57,6 +63,10 @@ button {
     text-align: center;
     white-space: nowrap;
     width: auto;
+}
+
+.pageLinkCurrentPage {
+    background-color: #dddddd;
 }
 
 .pageLinkContainer {
