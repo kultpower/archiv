@@ -61,8 +61,8 @@
     <br/>
     -->
 
-    <img ng-click="clickImage('http://www.kultpower.de/archiv/hefte/',path,page)"
-         ng-src="http://www.kultpower.de/archiv/hefte/{{ path }}/{{ page.dateiname }}"/>
+    <img ng-click="clickImage('{{ heft.mainUrl }}' + 'hefte/',path,page)"
+         ng-src="{{ heft.mainUrl }}hefte/{{path}}/{{ page.dateiname }}"/>
 
 
 </div>
