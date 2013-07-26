@@ -56,7 +56,7 @@ button {
 }
 
 .pageLink {
-
+    background-color: white;
     color: black;
     font-size: 8pt;
     cursor: pointer;
@@ -70,16 +70,16 @@ button {
 }
 
 .pageLinkContainer {
-    background-color: white;
     height: 500px;
     overflow: auto;
     position: fixed;
     top: 10px;
     left: 900px;
-    width: 200px;
+    width: 300px;
     white-space: nowrap;
-    -moz-column-count: 2;    -moz-column-gap: 2em;
-    -webkit-column-count: 2; -webkit-column-gap: 2em;
+    -moz-column-count: 2;    -moz-column-gap: 1em;
+    -webkit-column-count: 2; -webkit-column-gap: 1em;
+    column-count: 2; column-gap: 1em;
 }
 
 .pageLink:hover {
