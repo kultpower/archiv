@@ -1,14 +1,10 @@
-<div class="loading loadingImage" ng-show="$root.imageLoader.active()">
-    <div class="middleOfPage">
-    ...loading image...
-    </div>
-</div>
 
 
 <div id="debug">
     {{ debug }}
     <br/>
-
+    loadingData: {{ loadingData }}
+    <br/>
     pages: {{ heft.pages.length }}
     <br/>
     areas: {{ heft.areas.length }}
@@ -22,7 +18,9 @@
     realPageNumber: {{ realPageNumber }}
 </div>
 
-<div id="loading" ng-hide="loadingDataFinished">LOADING</div>
+<div id="loading" ng-show="loadingData">
+        <div class="middleOfPage">LOADING</div>
+</div>
 
 <div id="navigation">
     <button ng-click="gotoPreviousPage()" ng-disabled="realPageNumber==heft.filledPageNumbers[0]">zur&uuml;ck</button>
@@ -41,9 +39,6 @@
 <div id="previewImages" ng-show="istAktuellAnzuzeigen(page)" ng-animate="{show: 'example-show', hide: 'example-hide'}"
      ng-repeat="page in heft.pages"
         style="margin-left: {{ (1-$index %2) * 252 }}px">
-    <!--{{ path }} / {{ page.dateiname }}
-    <br/>
-    -->
 
     <img ng-click="clickImage('{{ heft.mainUrl }}' + 'hefte/',path,page)"
          ng-src="{{ heft.mainUrl }}hefte/{{path}}/{{ page.dateiname }}"/>
@@ -52,9 +47,27 @@
 </div>
 
 
-<div ng-show="bigPage!=null && !$root.imageLoader.active()" ng-animate="{show: 'example-show', hide: 'example-hide'}"
+<div
+        ng-show="bigPage!=null && !loadingData"
+        xxng-animate="{show: 'example-show', hide: 'example-hide'}"
      style="position: absolute; top: 0px; left: 0px; padding: 10px; width: 100%; height: 2000px; background-color: black; background-color: rgba(0,0,0,0.7);">
-    <img style="opacity: 1;" ng-click="bigPage=null" title="test" id="image" ng-src="{{ bigPageImgUrl }}"/>
+    <span ng-click="bigPage=null">
+
+    <div style="opacity: 1;"
+         ng-repeat="page in heft.pagesByRealPageNumber"
+            >
+        <ng-switch on="!!bigPageImgUrl.endsWith(page.dateiname)">
+            <div ng-switch-when="true">
+                <img  imageonload="'{{ page.dateiname }}'"
+                        ng-src="http://www.kultpower.de/archiv/hefte/{{ path }}/big/{{ page.dateiname }}"
+                        xx="{{ heft.pagesByRealPageNumber[heft.filledPageNumbers.indexOf(page.realPageNumber)+1-filledPageNumbers[0]].dateiname }}"
+                        title="{{ page.dateiname }}"
+                        />
+            </div>
+        </ng-switch>
+    </div>
+    </span>
+
 </div>
 
 

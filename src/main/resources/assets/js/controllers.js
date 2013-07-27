@@ -12,47 +12,39 @@ angular.module('myApp.controllers', [])
         });
     }])
 
-    .controller('HeftController', ['$scope', '$q', 'heftService', '$routeParams', function ($scope, $q, heftService, $routeParams) {
+    .controller('heftController', ['$scope', '$q', 'heftService', '$routeParams', function ($scope, $q, heftService, $routeParams) {
         $scope.debug = 'einzelnes Heft: ' + $routeParams.heftname;
 
 
         heftService.heft($routeParams.heftname).then(function() {
-            $scope.loadingDataFinished=false;
+            $scope.loadingData=true;
             $scope.heft = heftService.data();
             //alert($scope.heft.filledPageNumbers[0]);
             $scope.gotoPageByRealPageNumber($scope.heft.filledPageNumbers[0]);
 
-            $scope.loadingDataFinished=true;
+            $scope.loadingData=false;
         });
 
-        /*
-        heftService.heft($routeParams.heftname, function(data) {
-            $scope.heft = {};
-            $scope.heft = data;
-        });
-        */
         $scope.path=$routeParams.heftname;
         $scope.currentPage = "";
         $scope.bigPage = null;
         $scope.pageNumberInput = 1;
-        //$scope.gotoPage($scope.pageNumberInput);
+
         $scope.bigPageImgUrl=null;
         $scope.realPageNumber="";
 
+        $scope.$on('loadingFinished', function(event, parameter) {
+            $scope.$apply(function () {
+                $scope.loadingData=false;
+            });
+        });
         $scope.clickImage=function(urlPrefix, path, page) {
-            $scope.bigPageImgUrl=null;
-            $scope.bigPage=null;
-            //alert('L-1');
-            heftService.preloadImage(urlPrefix + path + '/big/' + page.dateiname)
-                .then(function() {
-                    //alert('L-2');
-                    $scope.bigPageImgUrl=urlPrefix + path + '/big/' + page.dateiname;
-                    $scope.bigPage=page.dateiname;
-                    $scope.pageNumberInput = $scope.heft.pages.indexOf(page)
-                }
-            );
-
+            $scope.loadingData=true;
+            $scope.bigPageImgUrl=urlPrefix + path + '/big/' + page.dateiname;
+            $scope.bigPage=page.dateiname;
+            $scope.pageNumberInput = $scope.heft.pages.indexOf(page);
         };
+
         $scope.gotoPageByRealPageNumber = function(realPageNumber) {
             if (realPageNumber<1) realPageNumber=1;
             //console.log('gotoPageByRealPageNumber:' + realPageNumber);
@@ -61,14 +53,7 @@ angular.module('myApp.controllers', [])
             var stelle = $scope.heft.filledPageNumbers.indexOf($scope.realPageNumber);
         }
 
-        /*
-        $scope.gotoPageByPage = function(page) {
-            $scope.gotoPage($scope.heft.pages.indexOf(page));
-        }
-        $scope.gotoPage = function(number) {
-            $scope.currentPage = $scope.heft.pages[number].dateiname;
-        }
-        */
+
         $scope.gotoNextPage = function() {
             $scope.realPageNumber++;
             $scope.realPageNumber++;

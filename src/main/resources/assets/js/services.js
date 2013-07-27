@@ -25,7 +25,7 @@ angular.module('myApp.services', []).
         }
     }])
 
-    .service('heftService', ['$http','$q', '$rootScope', 'promiseTracker', function ($http, $q, $rootScope, promiseTracker) {
+    .service('heftService', ['$http','$q', 'promiseTracker', function ($http, $q, promiseTracker) {
         var deffered = $q.defer();
         var data = [];
         var heftService = {};
@@ -36,22 +36,11 @@ angular.module('myApp.services', []).
             $http.get('/service/heft/' + name, {tracker: 'imageLoader'})
                 .success(function (d) {
                     data = d;
-                    //console.log(d);
                     deffered.resolve();
                 });
             return deffered.promise;
         };
         heftService.data = function() { return data; };
-
-        heftService.preloadImage = function(url) {
-            console.log('Loading image: ' + url);
-            $http.get(url, {tracker: 'imageLoader'})
-                .success(function (d) {
-                    console.log('Loaded');
-                    deffered.resolve();
-                });
-            return deffered.promise;
-        };
 
         return heftService;
 

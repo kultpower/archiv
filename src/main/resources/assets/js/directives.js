@@ -23,4 +23,21 @@ angular.module('myApp.directives', []).
                 });
             });
         };
-    });
+    })
+
+    .directive('imageonload', [ function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var parameter = null;
+            scope.$watch(attrs.imageonload, function (value) {
+                parameter = attrs.imageonload;
+            });
+            element.bind('load', function() {
+                scope.$emit('loadingFinished', parameter);
+            });
+        }
+    };
+}]);
+
+;
